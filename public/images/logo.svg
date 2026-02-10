@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 60">
+  <text x="34" y="46" font-family="Space Grotesk, system-ui, sans-serif" font-weight="700" font-size="42" fill="#1B9E4B">ad.tec</text>
+  <path d="M8 30 L24 14" stroke="#4285F4" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M8 30 L24 46" stroke="#4285F4" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M272 30 L256 14" stroke="#F4B400" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <path d="M272 30 L256 46" stroke="#F4B400" stroke-width="6" stroke-linecap="round" fill="none"/>
+</svg>

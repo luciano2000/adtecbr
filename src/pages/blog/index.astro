@@ -1,0 +1,75 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import BlogCard from '../../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const posts = allPosts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Blog — AD TEC" description="Artigos sobre ad tech, publicidade programática, tecnologia e tendências do mercado digital.">
+  <section class="blog-page">
+    <div class="container">
+      <div class="blog-header">
+        <h1>Blog</h1>
+        <p class="blog-subtitle">Conteúdos sobre ad tech, publicidade e tecnologia</p>
+      </div>
+      <div class="blog-list">
+        {posts.map((post) => (
+          <BlogCard
+            title={post.data.title}
+            description={post.data.description}
+            date={post.data.date}
+            slug={post.slug}
+          />
+        ))}
+      </div>
+      {posts.length === 0 && (
+        <p class="blog-empty">Nenhum post publicado ainda. Fique ligado!</p>
+      )}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .blog-page {
+    padding-top: calc(var(--header-height) + var(--space-12));
+    padding-bottom: var(--space-20);
+  }
+
+  .blog-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .blog-header h1 {
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-subtitle {
+    color: var(--color-gray-500);
+    font-size: var(--text-lg);
+  }
+
+  .blog-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .blog-empty {
+    text-align: center;
+    color: var(--color-gray-500);
+    padding: var(--space-16) 0;
+  }
+
+  @media (max-width: 768px) {
+    .blog-list {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

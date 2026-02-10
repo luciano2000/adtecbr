@@ -1,0 +1,533 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import BlogCard from '../components/BlogCard.astro';
+import { getCollection } from 'astro:content';
+
+const allPosts = await getCollection('blog');
+const recentPosts = allPosts
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const services = [
+  {
+    icon: '🌐',
+    title: 'Criação de Sites',
+    description: 'Sites leves, rápidos e modernos. Institucionais, blogs e portais de conteúdo com as melhores práticas do mercado.',
+    href: '/servicos/criacao-de-sites',
+    type: 'servico' as const,
+  },
+  {
+    icon: '🎨',
+    title: 'Identidade Visual',
+    description: 'Logotipos criativos e minimalistas, alinhados ao posicionamento da sua marca com identidade visual completa.',
+    href: '/servicos/identidade-visual',
+    type: 'servico' as const,
+  },
+  {
+    icon: '📊',
+    title: 'Estudo de Viabilidade',
+    description: 'Análise de sites e apps para definir os melhores formatos e posicionamentos de anúncios.',
+    href: '/servicos/estudo-viabilidade',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '⚙️',
+    title: 'Setup Google AdManager',
+    description: 'Configuração completa da estrutura de publicidade: canais, tags, slots e chaves de segmentação.',
+    href: '/servicos/setup-google-admanager',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '🚀',
+    title: 'Mídia Programática',
+    description: 'Ativação do Google AdExchange e configuração do ecossistema de mídia programática.',
+    href: '/servicos/midia-programatica',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '📈',
+    title: 'Gestão Programática',
+    description: 'Gerenciamento de regras de preço, deals, parceiros terceiros e header bidding para melhor performance.',
+    href: '/servicos/gestao-programatica',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '🔧',
+    title: 'Consultoria Ad Tech',
+    description: 'Melhorias técnicas para performance, velocidade e viewability. Otimização de scripts de anúncios.',
+    href: '/servicos/consultoria-adtech',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '🤖',
+    title: 'Automação de Atendimento',
+    description: 'Agentes de IA para atendimento inicial, qualificação de leads e integração com CRMs.',
+    href: '/servicos/automacao-atendimento',
+    type: 'servico' as const,
+  },
+];
+
+const differentials = [
+  {
+    icon: '🏆',
+    title: 'Experiência Comprovada',
+    description: 'Mais de 20 anos no mercado de publicidade digital, acompanhando cada evolução tecnológica.',
+  },
+  {
+    icon: '🎯',
+    title: 'Soluções Sob Medida',
+    description: 'Cada projeto é único. Analisamos suas necessidades para entregar exatamente o que você precisa.',
+  },
+  {
+    icon: '⚡',
+    title: 'Tecnologia de Ponta',
+    description: 'Utilizamos as ferramentas e práticas mais atuais do mercado de ad tech e desenvolvimento.',
+  },
+];
+
+const whatsappUrl = 'https://api.whatsapp.com/send/?phone=5511978385112&text=Ol%C3%A1%21+Gostaria+de+mais+informa%C3%A7%C3%B5es+sobre+a+AD+TEC&type=phone_number&app_absent=0';
+---
+
+<BaseLayout title="AD TEC — Soluções em Tecnologia e Publicidade">
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="hero-shape hero-shape-1"></div>
+      <div class="hero-shape hero-shape-2"></div>
+      <div class="hero-shape hero-shape-3"></div>
+    </div>
+    <div class="container hero-content">
+      <span class="hero-badge animate-fade-in-up">🚀 Publicidade com Inteligência</span>
+      <h1 class="hero-title animate-fade-in-up animate-delay-1">
+        Tecnologia e publicidade<br />que <span class="text-gradient">geram resultados</span>
+      </h1>
+      <p class="hero-subtitle animate-fade-in-up animate-delay-2">
+        Soluções inteligentes em ad tech, mídia programática, criação de sites e automação — personalizadas para o seu negócio.
+      </p>
+      <div class="hero-actions animate-fade-in-up animate-delay-3">
+        <a href="/contato" class="btn btn-primary btn-lg">Fale Conosco</a>
+        <a href="/servicos" class="btn btn-secondary btn-lg">Nossos Serviços</a>
+      </div>
+      <div class="hero-trust animate-fade-in-up animate-delay-4">
+        <span class="hero-trust-item">
+          <strong>+20 anos</strong> de experiência
+        </span>
+        <span class="hero-trust-divider"></span>
+        <span class="hero-trust-item">
+          <strong>100%</strong> brasileira
+        </span>
+        <span class="hero-trust-divider"></span>
+        <span class="hero-trust-item">
+          <strong>Ad Tech</strong> especializada
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section class="section" id="sobre">
+    <div class="container about-grid">
+      <div class="about-content">
+        <h2 class="about-title">Quem Somos</h2>
+        <p class="about-text">
+          A <strong>AD TEC Soluções em Tecnologia e Publicidade</strong> foi fundada em 2023 com o objetivo de oferecer soluções práticas, rápidas e eficientes em marketing digital, publicidade e tecnologia.
+        </p>
+        <p class="about-text">
+          Acompanhamos de perto as tendências do mercado e contamos com profissionais especializados, focados em entregar soluções específicas de acordo com a necessidade de cada cliente.
+        </p>
+        <p class="about-text">
+          Atendemos desde pessoas físicas, pequenas e médias empresas até projetos digitais mais complexos, como sites, portais e publishers.
+        </p>
+      </div>
+      <div class="about-highlight">
+        <div class="about-card">
+          <div class="about-card-icon">👨‍💻</div>
+          <h3>Luciano Rocha</h3>
+          <p class="about-card-role">Fundador</p>
+          <p class="about-card-desc">No mercado de publicidade online desde o ano 2000. Mais de duas décadas de experiência acompanhando cada evolução do ecossistema digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços -->
+  <section class="section-alt" id="servicos">
+    <div class="container">
+      <h2 class="section-title">Nossos Serviços</h2>
+      <p class="section-subtitle">Atendemos de pessoas físicas a projetos digitais complexos</p>
+      <div class="services-grid">
+        {services.map((service) => (
+          <ServiceCard
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+            href={service.href}
+            type={service.type}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Diferenciais -->
+  <section class="section" id="diferenciais">
+    <div class="container">
+      <h2 class="section-title">Por que a AD TEC?</h2>
+      <p class="section-subtitle">Combinamos experiência, tecnologia e atendimento personalizado</p>
+      <div class="differentials-grid">
+        {differentials.map((item) => (
+          <div class="differential-card">
+            <span class="differential-icon">{item.icon}</span>
+            <h3>{item.title}</h3>
+            <p>{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Preview -->
+  {recentPosts.length > 0 && (
+    <section class="section-alt" id="blog">
+      <div class="container">
+        <h2 class="section-title">Blog</h2>
+        <p class="section-subtitle">Conteúdos sobre ad tech, publicidade e tecnologia</p>
+        <div class="blog-grid">
+          {recentPosts.map((post) => (
+            <BlogCard
+              title={post.data.title}
+              description={post.data.description}
+              date={post.data.date}
+              slug={post.slug}
+            />
+          ))}
+        </div>
+        <div class="blog-cta">
+          <a href="/blog" class="btn btn-secondary">Ver todos os posts</a>
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- CTA Final -->
+  <section class="cta-section">
+    <div class="container cta-content">
+      <h2 class="cta-title">Vamos conversar?</h2>
+      <p class="cta-text">Entre em contato e descubra como podemos ajudar seu negócio a crescer.</p>
+      <div class="cta-actions">
+        <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" class="btn btn-whatsapp btn-lg">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+          </svg>
+          Chamar no WhatsApp
+        </a>
+        <a href="/contato" class="btn btn-primary btn-lg">Enviar Mensagem</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  /* --- Hero --- */
+  .hero {
+    position: relative;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    padding-top: var(--header-height);
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-light) 100%);
+  }
+
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .hero-shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+  }
+
+  .hero-shape-1 {
+    width: 600px;
+    height: 600px;
+    background: var(--color-secondary);
+    top: -200px;
+    right: -200px;
+  }
+
+  .hero-shape-2 {
+    width: 400px;
+    height: 400px;
+    background: var(--color-primary);
+    bottom: -100px;
+    left: -100px;
+  }
+
+  .hero-shape-3 {
+    width: 200px;
+    height: 200px;
+    background: var(--color-accent);
+    top: 40%;
+    right: 20%;
+  }
+
+  .hero-content {
+    position: relative;
+    text-align: center;
+    padding: var(--space-16) 0;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: var(--space-2) var(--space-5);
+    background: var(--color-primary-light);
+    color: var(--color-primary);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    border-radius: var(--radius-full);
+    margin-bottom: var(--space-6);
+  }
+
+  .hero-title {
+    font-size: var(--text-6xl);
+    line-height: 1.1;
+    margin-bottom: var(--space-6);
+    letter-spacing: -0.02em;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-xl);
+    color: var(--color-gray-500);
+    max-width: 620px;
+    margin: 0 auto var(--space-8);
+    line-height: 1.6;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: var(--space-12);
+  }
+
+  .hero-trust {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-6);
+    flex-wrap: wrap;
+  }
+
+  .hero-trust-item {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+  }
+
+  .hero-trust-item strong {
+    color: var(--color-dark);
+    font-weight: 700;
+  }
+
+  .hero-trust-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--color-gray-300);
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+      padding-top: calc(var(--header-height) + var(--space-8));
+      padding-bottom: var(--space-8);
+    }
+
+    .hero-title {
+      font-size: var(--text-4xl);
+    }
+
+    .hero-subtitle {
+      font-size: var(--text-lg);
+    }
+
+    .hero-trust-divider {
+      display: none;
+    }
+
+    .hero-trust {
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+  }
+
+  /* --- About --- */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: var(--space-16);
+    align-items: center;
+  }
+
+  .about-title {
+    font-size: var(--text-4xl);
+    margin-bottom: var(--space-6);
+  }
+
+  .about-text {
+    color: var(--color-gray-700);
+    line-height: 1.8;
+    margin-bottom: var(--space-4);
+  }
+
+  .about-card {
+    background: var(--color-light);
+    border-radius: var(--radius-lg);
+    padding: var(--space-8);
+    text-align: center;
+    border: 1px solid var(--color-gray-200);
+  }
+
+  .about-card-icon {
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .about-card h3 {
+    margin-bottom: var(--space-1);
+  }
+
+  .about-card-role {
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: var(--text-sm);
+    margin-bottom: var(--space-4);
+  }
+
+  .about-card-desc {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
+    }
+  }
+
+  /* --- Services Grid --- */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  /* --- Differentials --- */
+  .differentials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+
+  .differential-card {
+    text-align: center;
+    padding: var(--space-8);
+  }
+
+  .differential-icon {
+    display: block;
+    font-size: 3rem;
+    margin-bottom: var(--space-4);
+  }
+
+  .differential-card h3 {
+    font-size: var(--text-xl);
+    margin-bottom: var(--space-3);
+  }
+
+  .differential-card p {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 768px) {
+    .differentials-grid {
+      grid-template-columns: 1fr;
+      gap: var(--space-4);
+    }
+  }
+
+  /* --- Blog Grid --- */
+  .blog-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+
+  .blog-cta {
+    text-align: center;
+    margin-top: var(--space-10);
+  }
+
+  @media (max-width: 768px) {
+    .blog-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* --- CTA Section --- */
+  .cta-section {
+    background: linear-gradient(135deg, var(--color-dark) 0%, var(--color-dark-soft) 100%);
+    padding: var(--space-20) 0;
+  }
+
+  .cta-content {
+    text-align: center;
+  }
+
+  .cta-title {
+    font-size: var(--text-4xl);
+    color: var(--color-white);
+    margin-bottom: var(--space-4);
+  }
+
+  .cta-text {
+    color: var(--color-gray-400);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-8);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+</style>

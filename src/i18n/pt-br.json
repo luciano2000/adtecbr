@@ -1,0 +1,65 @@
+{
+  "site": {
+    "title": "AD TEC — Soluções em Tecnologia e Publicidade",
+    "description": "Soluções práticas, rápidas e eficientes em marketing digital, publicidade programática e tecnologia. Desde 2000 no mercado de publicidade online."
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Serviços",
+    "blog": "Blog",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Tecnologia e publicidade que geram resultados",
+    "subtitle": "Soluções inteligentes em ad tech, mídia programática, criação de sites e automação — personalizadas para o seu negócio.",
+    "cta": "Fale Conosco"
+  },
+  "about": {
+    "title": "Quem Somos",
+    "description": "A AD TEC foi fundada em 2023 com o objetivo de oferecer soluções práticas, rápidas e eficientes em marketing digital, publicidade e tecnologia.",
+    "experience": "Mais de 20 anos de experiência em publicidade online",
+    "founder": "Fundada por Luciano Rocha, profissional atuante no mercado de publicidade digital desde o ano 2000."
+  },
+  "services": {
+    "title": "Nossos Serviços",
+    "subtitle": "Atendemos de pessoas físicas a projetos digitais complexos",
+    "cta": "Saiba mais"
+  },
+  "differentials": {
+    "title": "Por que a AD TEC?",
+    "items": [
+      {
+        "title": "Experiência Comprovada",
+        "description": "Mais de 20 anos no mercado de publicidade digital, acompanhando cada evolução tecnológica."
+      },
+      {
+        "title": "Soluções Sob Medida",
+        "description": "Cada projeto é único. Analisamos suas necessidades para entregar exatamente o que você precisa."
+      },
+      {
+        "title": "Tecnologia de Ponta",
+        "description": "Utilizamos as ferramentas e práticas mais atuais do mercado de ad tech e desenvolvimento."
+      }
+    ]
+  },
+  "blogSection": {
+    "title": "Blog",
+    "subtitle": "Conteúdos sobre ad tech, publicidade e tecnologia",
+    "viewAll": "Ver todos os posts"
+  },
+  "ctaFinal": {
+    "title": "Vamos conversar?",
+    "description": "Entre em contato e descubra como podemos ajudar seu negócio a crescer.",
+    "cta": "Chamar no WhatsApp"
+  },
+  "contact": {
+    "title": "Contato",
+    "subtitle": "Fale com a gente",
+    "whatsapp": "Chamar no WhatsApp",
+    "freshdesk": "Ou envie uma mensagem:"
+  },
+  "footer": {
+    "company": "AD TEC Soluções em Tecnologia e Publicidade LTDA",
+    "rights": "Todos os direitos reservados."
+  }
+}

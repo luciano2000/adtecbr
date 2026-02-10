@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Blue arrow going right-down -->
+  <polygon points="20,10 80,50 20,50" fill="#4285F4"/>
+  <!-- Yellow arrow going left-up -->
+  <polygon points="80,50 20,50 80,90" fill="#F4B400"/>
+  <!-- Overlap creates the diamond shape in the center -->
+  <polygon points="50,35 65,50 50,65 35,50" fill="#FFFFFF"/>
+</svg>

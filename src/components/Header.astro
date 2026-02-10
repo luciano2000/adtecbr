@@ -1,0 +1,231 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/servicos', label: 'Serviços' },
+  { href: '/blog', label: 'Blog' },
+  { href: '/contato', label: 'Contato' },
+];
+---
+
+<header class="header" id="header">
+  <div class="container header-inner">
+    <a href="/" class="header-logo" aria-label="AD TEC - Ir para a página inicial">
+      <img src="/images/adtecn.png" alt="AD TEC" width="140" height="40" />
+    </a>
+
+    <nav class="header-nav" id="nav" aria-label="Navegação principal">
+      <ul class="nav-list">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class:list={['nav-link', { active: currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href)) }]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+        <li class="nav-cta">
+          <a href="/contato" class="btn btn-primary btn-nav">Fale Conosco</a>
+        </li>
+      </ul>
+    </nav>
+
+    <button
+      class="menu-toggle"
+      id="menu-toggle"
+      aria-label="Abrir menu"
+      aria-expanded="false"
+      aria-controls="nav"
+    >
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+      <span class="menu-bar"></span>
+    </button>
+  </div>
+</header>
+
+<style>
+  .header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid transparent;
+    transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  }
+
+  .header.scrolled {
+    border-bottom-color: var(--color-gray-200);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .header-logo img {
+    height: 36px;
+    width: auto;
+  }
+
+  .nav-list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-8);
+  }
+
+  .nav-link {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--color-gray-700);
+    position: relative;
+    padding: var(--space-2) 0;
+    transition: color var(--transition-fast);
+  }
+
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--color-primary);
+    border-radius: 1px;
+    transition: width var(--transition-base);
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--color-primary);
+  }
+
+  .nav-link:hover::after,
+  .nav-link.active::after {
+    width: 100%;
+  }
+
+  .btn-nav {
+    padding: var(--space-2) var(--space-5);
+    font-size: var(--text-sm);
+    border-radius: var(--radius-md);
+  }
+
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+  }
+
+  .menu-bar {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: var(--color-dark);
+    border-radius: 2px;
+    transition: all var(--transition-base);
+  }
+
+  .menu-toggle.open .menu-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .menu-toggle.open .menu-bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle.open .menu-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  @media (max-width: 768px) {
+    .menu-toggle {
+      display: flex;
+    }
+
+    .header-nav {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--color-white);
+      transform: translateX(100%);
+      transition: transform var(--transition-base);
+      z-index: 99;
+    }
+
+    .header-nav.open {
+      transform: translateX(0);
+    }
+
+    .nav-list {
+      flex-direction: column;
+      padding: var(--space-8);
+      gap: var(--space-4);
+    }
+
+    .nav-link {
+      font-size: var(--text-lg);
+      padding: var(--space-3) 0;
+    }
+
+    .nav-cta {
+      margin-top: var(--space-4);
+      width: 100%;
+    }
+
+    .nav-cta .btn-nav {
+      width: 100%;
+      padding: var(--space-4);
+      font-size: var(--text-base);
+      text-align: center;
+    }
+  }
+</style>
+
+<script>
+  const header = document.getElementById('header');
+  const toggle = document.getElementById('menu-toggle');
+  const nav = document.getElementById('nav');
+
+  // Scroll effect
+  const onScroll = () => {
+    header?.classList.toggle('scrolled', window.scrollY > 10);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  toggle?.addEventListener('click', () => {
+    const isOpen = nav?.classList.toggle('open');
+    toggle.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : '';
+  });
+
+  // Close on link click
+  nav?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      nav.classList.remove('open');
+      toggle?.classList.remove('open');
+      toggle?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

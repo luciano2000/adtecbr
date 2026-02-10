@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+
+const services = [
+  {
+    icon: '🌐',
+    title: 'Criação de Sites',
+    description: 'Sites leves, rápidos e modernos. Institucionais, blogs e portais de conteúdo com as melhores práticas do mercado.',
+    href: '/servicos/criacao-de-sites',
+    type: 'servico' as const,
+  },
+  {
+    icon: '🎨',
+    title: 'Identidade Visual',
+    description: 'Logotipos criativos e minimalistas, alinhados ao posicionamento da sua marca com identidade visual completa.',
+    href: '/servicos/identidade-visual',
+    type: 'servico' as const,
+  },
+  {
+    icon: '📊',
+    title: 'Estudo de Viabilidade',
+    description: 'Análise de sites e apps para definir os melhores formatos e posicionamentos de anúncios.',
+    href: '/servicos/estudo-viabilidade',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '⚙️',
+    title: 'Setup Google AdManager',
+    description: 'Configuração completa da estrutura de publicidade: canais, tags, slots e chaves de segmentação.',
+    href: '/servicos/setup-google-admanager',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '🚀',
+    title: 'Mídia Programática',
+    description: 'Ativação do Google AdExchange e configuração do ecossistema de mídia programática.',
+    href: '/servicos/midia-programatica',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '📈',
+    title: 'Gestão Programática',
+    description: 'Gerenciamento de regras de preço, deals, parceiros terceiros e header bidding para melhor performance.',
+    href: '/servicos/gestao-programatica',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '🔧',
+    title: 'Consultoria Ad Tech',
+    description: 'Melhorias técnicas para performance, velocidade e viewability. Otimização de scripts de anúncios.',
+    href: '/servicos/consultoria-adtech',
+    type: 'consultoria' as const,
+  },
+  {
+    icon: '🤖',
+    title: 'Automação de Atendimento',
+    description: 'Agentes de IA para atendimento inicial, qualificação de leads e integração com CRMs.',
+    href: '/servicos/automacao-atendimento',
+    type: 'servico' as const,
+  },
+];
+---
+
+<BaseLayout title="Serviços — AD TEC" description="Conheça todos os serviços da AD TEC: criação de sites, identidade visual, mídia programática, consultoria ad tech e automação.">
+  <section class="services-page">
+    <div class="container">
+      <div class="services-header">
+        <h1>Nossos Serviços</h1>
+        <p class="services-subtitle">Atendemos de pessoas físicas a projetos digitais complexos, com soluções personalizadas para cada necessidade.</p>
+      </div>
+      <div class="services-grid">
+        {services.map((service) => (
+          <ServiceCard
+            icon={service.icon}
+            title={service.title}
+            description={service.description}
+            href={service.href}
+            type={service.type}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .services-page {
+    padding-top: calc(var(--header-height) + var(--space-12));
+    padding-bottom: var(--space-20);
+  }
+
+  .services-header {
+    text-align: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .services-header h1 {
+    margin-bottom: var(--space-3);
+  }
+
+  .services-subtitle {
+    color: var(--color-gray-500);
+    font-size: var(--text-lg);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+</style>

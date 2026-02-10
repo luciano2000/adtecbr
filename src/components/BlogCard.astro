@@ -1,0 +1,87 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  date: Date;
+  slug: string;
+}
+
+const { title, description, date, slug } = Astro.props;
+
+const formattedDate = date.toLocaleDateString('pt-BR', {
+  day: '2-digit',
+  month: 'long',
+  year: 'numeric',
+});
+---
+
+<a href={`/blog/${slug}`} class="blog-card">
+  <div class="blog-card-content">
+    <time class="blog-date" datetime={date.toISOString()}>{formattedDate}</time>
+    <h3 class="blog-title">{title}</h3>
+    <p class="blog-desc">{description}</p>
+    <span class="blog-link">
+      Ler artigo
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 12h14M12 5l7 7-7 7"/>
+      </svg>
+    </span>
+  </div>
+</a>
+
+<style>
+  .blog-card {
+    display: block;
+    padding: var(--space-6);
+    background: var(--color-white);
+    border: 1px solid var(--color-gray-200);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .blog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-secondary);
+    color: inherit;
+  }
+
+  .blog-date {
+    display: block;
+    font-size: var(--text-xs);
+    color: var(--color-gray-400);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: var(--space-3);
+  }
+
+  .blog-title {
+    font-size: var(--text-lg);
+    color: var(--color-dark);
+    margin-bottom: var(--space-2);
+    line-height: 1.4;
+  }
+
+  .blog-desc {
+    font-size: var(--text-sm);
+    color: var(--color-gray-500);
+    line-height: 1.6;
+  }
+
+  .blog-link {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    margin-top: var(--space-4);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-secondary);
+    transition: gap var(--transition-base);
+  }
+
+  .blog-card:hover .blog-link {
+    gap: var(--space-3);
+  }
+</style>
