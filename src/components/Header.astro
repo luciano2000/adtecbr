@@ -130,6 +130,9 @@ const navLinks = [
     width: 32px;
     height: 32px;
     padding: 4px;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   .menu-bar {
@@ -164,13 +167,10 @@ const navLinks = [
       left: 0;
       right: 0;
       bottom: 0;
-      background: #ffffff;
+      background: var(--color-white);
       transform: translateX(100%);
       transition: transform var(--transition-base);
       z-index: 99;
-      overflow-y: auto;
-      -webkit-backdrop-filter: none;
-      backdrop-filter: none;
     }
 
     .header-nav.open {
@@ -181,6 +181,7 @@ const navLinks = [
       flex-direction: column;
       padding: var(--space-8);
       gap: var(--space-4);
+      background-color: #FFFFFF;
     }
 
     .nav-link {
