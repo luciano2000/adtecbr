@@ -164,10 +164,13 @@ const navLinks = [
       left: 0;
       right: 0;
       bottom: 0;
-      background: var(--color-white);
+      background: #ffffff;
       transform: translateX(100%);
       transition: transform var(--transition-base);
       z-index: 99;
+      overflow-y: auto;
+      -webkit-backdrop-filter: none;
+      backdrop-filter: none;
     }
 
     .header-nav.open {
