@@ -3,7 +3,6 @@ title: Viewability - A Métrica Mais Importante Para Seu Resultado
 description: Viewability - A Métrica Mais Importante
 date: 2026-02-10
 tags: ["viewability", "publicidade"]
-published: false
 image: "/images/blog/viewability-a-metrica-mais-importante.webp"
 --- 
 

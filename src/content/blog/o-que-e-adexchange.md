@@ -3,7 +3,6 @@ title: O que é AdExchange
 description: O que é AdExchange
 date: 2026-02-10
 tags: ["adexchange", "publicidade"]
-published: false
 image: "/images/blog/o-que-e-adexchange.webp"
 ---
 Um Ad Exchange, ou troca de anúncios, é uma plataforma online que permite a compra e venda de espaço publicitário digital de forma automatizada e em tempo real. É um ambiente onde anunciantes e editores podem se conectar e realizar transações de publicidade de maneira eficiente e transparente.
